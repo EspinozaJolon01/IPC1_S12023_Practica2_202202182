@@ -33,25 +33,23 @@ public class EmpaqueteDesapa extends Thread {
     @Override
     public void run() {
 
-      //  while (nConteo != 30) {
+        //  while (nConteo != 30) {
+        try {
 
-            try {
+            for (int i = 0; i < 30; i++) {
 
-                for (int i = 0; i < 30; i++) {
-
-                    buton.get(i).setBackground(Color.WHITE);
-                    nConteo++;
-                    numerosDePelotitas--;
-                    jLEmpaqueteTiem.setText(String.valueOf(numerosDePelotitas));
-                    sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000+1000);
-
-                }
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ProduccionDespa.class.getName()).log(Level.SEVERE, null, ex);
+                buton.get(i).setBackground(Color.WHITE);
+                nConteo++;
+                numerosDePelotitas--;
+                jLEmpaqueteTiem.setText(String.valueOf(numerosDePelotitas));
+                sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
+                System.out.println("empaF" + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
             }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProduccionDespa.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-     //   }
-
+        //   }
     }
 
 }

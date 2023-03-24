@@ -33,23 +33,24 @@ public class Salida extends Thread {
 
     @Override
     public void run() {
-      //  while (nConteo != 30) {
+        //  while (nConteo != 30) {
 
-            try {
+        try {
 
-                for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 30; i++) {
 
-                    boton.get(i).setBackground(Color.yellow);
-                    numerosDePelotitas++;
-                    nConteo++;
-                    jLSaliadTiem.setText(String.valueOf(numerosDePelotitas));
-                    sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000+1000);
-                }
-
-            } catch (InterruptedException ex) {
-                Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
+                boton.get(i).setBackground(Color.yellow);
+                numerosDePelotitas++;
+                nConteo++;
+                jLSaliadTiem.setText(String.valueOf(numerosDePelotitas));
+                sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
+                System.out.println("salidI" + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
             }
-      //  }
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //  }
 
     }
 }

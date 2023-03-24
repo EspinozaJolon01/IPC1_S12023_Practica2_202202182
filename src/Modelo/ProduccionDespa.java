@@ -17,39 +17,50 @@ import javax.swing.JLabel;
  */
 public class ProduccionDespa extends Thread {
 
-    JLabel jLTiempoInventarioProduc;
+    JLabel jLTiempoProduccion;
+    JLabel JlConteoInventario;
+    JLabel JLRepeticiones;
     int numerosDePelotitas = 30;
     int nConteo = 0;
 
     ArrayList<JButton> buton;
     FrmMenuInicial menu = new FrmMenuInicial();
 
-    public ProduccionDespa(ArrayList<JButton> buton, JLabel jLTiempoInventarioProduc) {
+    public ProduccionDespa(ArrayList<JButton> buton, JLabel jLTiempoProduccion, JLabel JlConteoInventario, JLabel JLRepeticiones) {
         this.buton = buton;
-        this.jLTiempoInventarioProduc = jLTiempoInventarioProduc;
+        this.jLTiempoProduccion = jLTiempoProduccion;
+        this.JlConteoInventario = JlConteoInventario;
+        this.JLRepeticiones = JLRepeticiones;
     }
 
     @Override
     public void run() {
 
-  //      while (nConteo != 30) {
+        //      while (nConteo != 30) {
+        try {
 
-            try {
+            for (int i = 0; i < 30; i++) {
 
-                for (int i = 0; i < 30; i++) {
+                buton.get(i).setBackground(Color.WHITE);
+                nConteo++;
+                numerosDePelotitas--;
+                jLTiempoProduccion.setText(String.valueOf(numerosDePelotitas));
 
-                    buton.get(i).setBackground(Color.WHITE);
-                    nConteo++;
-                    numerosDePelotitas--;
-                    jLTiempoInventarioProduc.setText(String.valueOf(numerosDePelotitas));
+                if (Integer.parseInt(JlConteoInventario.getText()) != 0 && Integer.parseInt(JLRepeticiones.getText()) != 0) {
                     sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
+                } else if (Integer.parseInt(JlConteoInventario.getText()) != 0) {
+                    sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+                } else {
+                    sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000);
                 }
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ProduccionDespa.class.getName()).log(Level.SEVERE, null, ex);
+
+                System.out.println("ProducF" + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
             }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProduccionDespa.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-     //   }
-
+        //   }
     }
 
 }

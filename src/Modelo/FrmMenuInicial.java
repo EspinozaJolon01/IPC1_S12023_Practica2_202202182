@@ -244,7 +244,8 @@ public class FrmMenuInicial extends javax.swing.JFrame {
                 registros.add(dato2);
                 registros.add(dato3);
                 registros.add(dato4);
-
+                
+                
                 FrmMenu menu1 = new FrmMenu();
                 menu1.setVisible(true);
                 dispose();

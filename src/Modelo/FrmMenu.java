@@ -376,6 +376,7 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
         // TODO add your handling code here:
 
         FrmMenuInicial mn = new FrmMenuInicial();
+        mn.registros.clear();
         mn.setVisible(true);
         this.dispose();
 
@@ -500,7 +501,7 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
             jPInventario.add(boton);
 
             Inventario hilo3 = new Inventario(listaBotones, JlConteoInventario);
-            InventarioDesapa hilo4 = new InventarioDesapa(listaBotones, JlConteoInventario);
+            InventarioDesapa hilo4 = new InventarioDesapa(listaBotones, JlConteoInventario, JLRepeticiones);
             hilo3.start();
             hilo4.start();
 
@@ -519,8 +520,8 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
             jPProduccion.setLayout(new GridLayout(5, 6));
             jPProduccion.add(botones);
 
-            Produccion hilo5 = new Produccion(listaBotonesProducc, jLTiempoProduccion);
-            ProduccionDespa hilo6 = new ProduccionDespa(listaBotonesProducc, jLTiempoProduccion);
+            Produccion hilo5 = new Produccion(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones);
+            ProduccionDespa hilo6 = new ProduccionDespa(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones);
             hilo5.start();
             hilo6.start();
 

@@ -43,7 +43,7 @@ public class SalidaDespa extends Thread {
                 numerosDePelotitas--;
                 jLSaliadTiem.setText(String.valueOf(numerosDePelotitas));
                 sleep(Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
-
+                System.out.println("saliF" + Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
             }
         } catch (InterruptedException ex) {
             Logger.getLogger(ProduccionDespa.class.getName()).log(Level.SEVERE, null, ex);

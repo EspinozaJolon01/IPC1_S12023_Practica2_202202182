@@ -32,6 +32,8 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
     private ArrayList<JButton> listaBotonesEmpaquetado = new ArrayList<>();
     private ArrayList<JButton> listaBotonesSalida = new ArrayList<>();
     static int nConteno = 0;
+    static int vecesRepetidas = 30;
+    static int vecesRepetida = 0;
 
     /**
      * Creates new form FrmMenu
@@ -377,6 +379,11 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
 
         FrmMenuInicial mn = new FrmMenuInicial();
         mn.registros.clear();
+        nConteno = 0;
+        JlConteoInventario.setText(String.valueOf(0));
+        JLFinal.setText(String.valueOf(0));
+        vecesRepetidas = 30;
+        vecesRepetida = 0;
         mn.setVisible(true);
         this.dispose();
 
@@ -637,8 +644,8 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
     public void run() {
 
         while (nConteno < 30) {
-
-            HiloInicio hilo2 = new HiloInicio(btnHilo1, JLRepeticiones);
+            
+            HiloInicio hilo2 = new HiloInicio(btnHilo1, JLRepeticiones, vecesRepetidas);
             hilo2.start();
 
             Inventario hilo3 = new Inventario(listaBotones, JlConteoInventario, nConteno);
@@ -654,11 +661,15 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
 
                 Salida hilo9 = new Salida(listaBotonesSalida, JLSalidaConteo, nConteno);
                 hilo9.start();
+                
 
-                HiloFinal hilo12 = new HiloFinal(btnHiloFinal, JLFinal, btnRegresar, btnRepor, hilo1);
+                HiloFinal hilo12 = new HiloFinal(btnHiloFinal, JLFinal, btnRegresar, btnRepor, hilo1, vecesRepetida);
                 hilo12.start();
 
+                vecesRepetidas--;
+
                 nConteno++;
+                vecesRepetida++;
             } catch (InterruptedException ex) {
                 Logger.getLogger(FrmMenu.class.getName()).log(Level.SEVERE, null, ex);
             }

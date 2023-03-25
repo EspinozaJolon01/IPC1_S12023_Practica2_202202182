@@ -25,9 +25,10 @@ public class HiloInicio extends Thread {
     static int contador = 0;
     static int vecesRepetidas = 30;
 
-    public HiloInicio(JButton btnHilo1, JLabel btnRpes) {
+    public HiloInicio(JButton btnHilo1, JLabel btnRpes, int vecesRepetidas) {
         this.btnHilo1 = btnHilo1;
         this.JLRepeticiones = btnRpes;
+        this.vecesRepetidas = vecesRepetidas;
     }
 
     @Override

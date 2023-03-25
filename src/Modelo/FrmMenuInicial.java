@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -83,34 +84,74 @@ public class FrmMenuInicial extends javax.swing.JFrame {
         txtCostoInvetantio.setBackground(new java.awt.Color(255, 255, 255));
         txtCostoInvetantio.setForeground(new java.awt.Color(0, 0, 0));
         txtCostoInvetantio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtCostoInvetantio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoInvetantioKeyTyped(evt);
+            }
+        });
 
         txtTiempoInvetario.setBackground(new java.awt.Color(255, 255, 255));
         txtTiempoInvetario.setForeground(new java.awt.Color(0, 0, 0));
         txtTiempoInvetario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtTiempoInvetario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTiempoInvetarioKeyTyped(evt);
+            }
+        });
 
         txtTiempoProduccion.setBackground(new java.awt.Color(255, 255, 255));
         txtTiempoProduccion.setForeground(new java.awt.Color(0, 0, 0));
         txtTiempoProduccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtTiempoProduccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTiempoProduccionKeyTyped(evt);
+            }
+        });
 
         txtCostoProduccion.setBackground(new java.awt.Color(255, 255, 255));
         txtCostoProduccion.setForeground(new java.awt.Color(0, 0, 0));
         txtCostoProduccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtCostoProduccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoProduccionKeyTyped(evt);
+            }
+        });
 
         txtCostoEmpaque.setBackground(new java.awt.Color(255, 255, 255));
         txtCostoEmpaque.setForeground(new java.awt.Color(0, 0, 0));
         txtCostoEmpaque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtCostoEmpaque.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoEmpaqueKeyTyped(evt);
+            }
+        });
 
         txtTiempoSalida.setBackground(new java.awt.Color(255, 255, 255));
         txtTiempoSalida.setForeground(new java.awt.Color(0, 0, 0));
         txtTiempoSalida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtTiempoSalida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTiempoSalidaKeyTyped(evt);
+            }
+        });
 
         txtSalidaCosto.setBackground(new java.awt.Color(255, 255, 255));
         txtSalidaCosto.setForeground(new java.awt.Color(0, 0, 0));
         txtSalidaCosto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtSalidaCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSalidaCostoKeyTyped(evt);
+            }
+        });
 
         txtTiempoEmpaque.setBackground(new java.awt.Color(255, 255, 255));
         txtTiempoEmpaque.setForeground(new java.awt.Color(0, 0, 0));
         txtTiempoEmpaque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 2));
+        txtTiempoEmpaque.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTiempoEmpaqueKeyTyped(evt);
+            }
+        });
 
         btnIniciarSimulacion.setBackground(new java.awt.Color(204, 204, 204));
         btnIniciarSimulacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -228,14 +269,15 @@ public class FrmMenuInicial extends javax.swing.JFrame {
     private void btnIniciarSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSimulacionActionPerformed
         // TODO add your handling code here:
 
+        String regex = "[0-9]+";
+
         if (!txtCostoEmpaque.getText().isEmpty() && !txtCostoInvetantio.getText().isEmpty() && !txtCostoProduccion.getText().isEmpty()
                 && !txtSalidaCosto.getText().isEmpty() && !txtTiempoEmpaque.getText().isEmpty() && !txtTiempoInvetario.getText().isEmpty()
                 && !txtTiempoProduccion.getText().isEmpty() && !txtTiempoSalida.getText().isEmpty()) {
             if (Integer.parseInt(txtCostoEmpaque.getText()) > 0 && Integer.parseInt(txtCostoInvetantio.getText()) > 0 && Integer.parseInt(txtCostoProduccion.getText()) > 0
                     && Integer.parseInt(txtSalidaCosto.getText()) > 0 && Integer.parseInt(txtTiempoEmpaque.getText()) > 0 && Integer.parseInt(txtTiempoInvetario.getText()) > 0
                     && Integer.parseInt(txtTiempoProduccion.getText()) > 0 && Integer.parseInt(txtTiempoSalida.getText()) > 0) {
-                
-    
+
                 RegistroDao dato1 = new RegistroDao("Inventario", txtTiempoInvetario.getText(), txtCostoInvetantio.getText());
                 RegistroDao dato2 = new RegistroDao("Produccion", txtTiempoProduccion.getText(), txtCostoProduccion.getText());
                 RegistroDao dato3 = new RegistroDao("Empaquetado", txtTiempoEmpaque.getText(), txtCostoEmpaque.getText());
@@ -244,8 +286,7 @@ public class FrmMenuInicial extends javax.swing.JFrame {
                 registros.add(dato2);
                 registros.add(dato3);
                 registros.add(dato4);
-                
-                
+
                 FrmMenu menu1 = new FrmMenu();
                 menu1.setVisible(true);
                 dispose();
@@ -259,6 +300,91 @@ public class FrmMenuInicial extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnIniciarSimulacionActionPerformed
+
+    private void txtTiempoInvetarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTiempoInvetarioKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtTiempoInvetarioKeyTyped
+
+    private void txtCostoInvetantioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoInvetantioKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtCostoInvetantioKeyTyped
+
+    private void txtTiempoProduccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTiempoProduccionKeyTyped
+        // TODO add your handling code here:
+
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTiempoProduccionKeyTyped
+
+    private void txtCostoProduccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoProduccionKeyTyped
+        // TODO add your handling code here:
+
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCostoProduccionKeyTyped
+
+    private void txtTiempoEmpaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTiempoEmpaqueKeyTyped
+        // TODO add your handling code here:
+
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTiempoEmpaqueKeyTyped
+
+    private void txtCostoEmpaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoEmpaqueKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCostoEmpaqueKeyTyped
+
+    private void txtTiempoSalidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTiempoSalidaKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTiempoSalidaKeyTyped
+
+    private void txtSalidaCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalidaCostoKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+
+        if (((caracter < '0' || caracter > '9')) && (caracter != KeyEvent.VK_BACK_SPACE)) {
+            JOptionPane.showMessageDialog(this, "Se debe de ingresar numeros enteros", "Numeros enteros", JOptionPane.ERROR_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSalidaCostoKeyTyped
 
     /**
      * @param args the command line arguments

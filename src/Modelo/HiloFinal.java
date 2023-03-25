@@ -24,33 +24,36 @@ public class HiloFinal extends Thread {
     JButton btnRegresar;
     JButton btnRepor;
     JLabel JLRepeticiones;
-    static int contador = 0;
-    static int vecesRepetidas = 0;
+    static int Contador = 0;
+    int vecesRepetidas = 0;
     //iniciarlizar el cronocmetro
     private CronometroHilo crono;
 
     FrmMenuInicial menu = new FrmMenuInicial();
 
-    public HiloFinal(JButton btnHilo1, JLabel btnRpes, JButton btnRegresar, JButton btnRepor, CronometroHilo crono) {
+    public HiloFinal(JButton btnHilo1, JLabel btnRpes, JButton btnRegresar, JButton btnRepor, CronometroHilo crono, int vecesRepetidas) {
         this.btnHilo1 = btnHilo1;
         this.JLRepeticiones = btnRpes;
         this.btnRegresar = btnRegresar;
         this.btnRepor = btnRepor;
         this.crono = crono;
+        this.vecesRepetidas = vecesRepetidas;
 
     }
 
     @Override
     public void run() {
-
+        Contador++;
         try {
             sleep(Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
-            contador++;
+
             btnHilo1.setBackground(Color.RED);
+
             vecesRepetidas++;
+            System.out.println(Contador);
             JLRepeticiones.setText(String.valueOf(vecesRepetidas));
 
-            if (contador == 30) {
+            if (vecesRepetidas == 30) {
                 btnRegresar.setEnabled(true);
                 btnRepor.setEnabled(true);
                 crono.stop();

@@ -81,12 +81,12 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
         jLabel7 = new javax.swing.JLabel();
         jPProduccion = new javax.swing.JPanel();
         jPInventario = new javax.swing.JPanel();
-        jLTiempoProduccion = new javax.swing.JLabel();
+        JLTiempoProduccion = new javax.swing.JLabel();
         JlConteoInventario = new javax.swing.JLabel();
         jPEmpaquetado = new javax.swing.JPanel();
-        jLEmpaqueteTiem = new javax.swing.JLabel();
+        JLEmpaqueteConteo = new javax.swing.JLabel();
         jPSalida = new javax.swing.JPanel();
-        jLSaliadTiem = new javax.swing.JLabel();
+        JLSalidaConteo = new javax.swing.JLabel();
         JLFinal = new javax.swing.JLabel();
         btnHiloFinal = new javax.swing.JButton();
 
@@ -259,7 +259,7 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLSaliadTiem, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JLSalidaConteo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jPSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(51, 51, 51)
@@ -269,14 +269,14 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLEmpaqueteTiem, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JLEmpaqueteConteo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jPEmpaquetado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(67, 67, 67)
-                                .addComponent(jLTiempoProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JLTiempoProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,11 +310,11 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLTiempoProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(JLTiempoProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLEmpaqueteTiem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLEmpaqueteConteo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -346,7 +346,7 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(JlConteoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLSaliadTiem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JLSalidaConteo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,16 +602,16 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLEmpaqueteConteo;
     private javax.swing.JLabel JLFinal;
     private javax.swing.JLabel JLRepeticiones;
+    private javax.swing.JLabel JLSalidaConteo;
+    private javax.swing.JLabel JLTiempoProduccion;
     private javax.swing.JLabel JlConteoInventario;
     private javax.swing.JButton btnHilo1;
     private javax.swing.JButton btnHiloFinal;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnRepor;
-    private javax.swing.JLabel jLEmpaqueteTiem;
-    private javax.swing.JLabel jLSaliadTiem;
-    private javax.swing.JLabel jLTiempoProduccion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -646,13 +646,13 @@ public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
 
             try {
                 Thread.sleep(1000);
-                Produccion hilo5 = new Produccion(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones, nConteno);
+                Produccion hilo5 = new Produccion(listaBotonesProducc, JLTiempoProduccion, nConteno);
                 hilo5.start();
 
-                Empaquetado hilo7 = new Empaquetado(listaBotonesEmpaquetado, jLEmpaqueteTiem, nConteno);
+                Empaquetado hilo7 = new Empaquetado(listaBotonesEmpaquetado, JLEmpaqueteConteo, nConteno);
                 hilo7.start();
 
-                Salida hilo9 = new Salida(listaBotonesSalida, jLSaliadTiem, nConteno);
+                Salida hilo9 = new Salida(listaBotonesSalida, JLSalidaConteo, nConteno);
                 hilo9.start();
 
                 HiloFinal hilo12 = new HiloFinal(btnHiloFinal, JLFinal, btnRegresar, btnRepor, hilo1);

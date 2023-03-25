@@ -43,7 +43,6 @@ public class HiloFinal extends Thread {
     @Override
     public void run() {
 
-        //       while (contador != 30) {
         try {
             sleep(Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
             contador++;
@@ -61,7 +60,6 @@ public class HiloFinal extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //     }
 
     }
 

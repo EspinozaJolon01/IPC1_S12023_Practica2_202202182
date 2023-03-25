@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 public class Produccion extends Thread {
 
     JLabel JlConteoInventario;
-    JLabel jLTiempoProduccion;
+    JLabel JLTiempoProduccion;
     JLabel JLRepeticiones;
     int numerosDePelotitas = 0;
     int nConteo = 0;
@@ -29,44 +29,30 @@ public class Produccion extends Thread {
     ArrayList<JButton> boton;
     FrmMenuInicial menu = new FrmMenuInicial();
 
-    public Produccion(ArrayList<JButton> boton, JLabel jLTiempoProduccion, JLabel JlConteoInventario, JLabel JLRepeticiones, int nConteo) {
+    public Produccion(ArrayList<JButton> boton, JLabel jLTiempoProduccions, int nConteo) {
         this.boton = boton;
-        this.jLTiempoProduccion = jLTiempoProduccion;
-        this.JlConteoInventario = JlConteoInventario;
-        this.JLRepeticiones = JLRepeticiones;
+        this.JLTiempoProduccion = jLTiempoProduccions;
+
         this.nConteo = nConteo;
     }
 
     @Override
     public void run() {
-        //  while (nConteo != 30) {
 
         try {
-//            for (int i = 0; i < 30; i++) {
-//
-//                boton.get(i).setBackground(Color.PINK);
-//                numerosDePelotitas++;
-//                nConteo++;
-//
-//                if (Integer.parseInt(JlConteoInventario.getText()) != 0 && Integer.parseInt(JLRepeticiones.getText()) != 0) {
-//                    sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
-//                } else {
-//                    sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
-//                }
-//                jLTiempoProduccion.setText(String.valueOf(numerosDePelotitas));
-//
-//                // System.out.println("produI" + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
-//            }
 
             sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+            contadores.contador2 = contadores.contador2 + 1;
+            JLTiempoProduccion.setText(String.valueOf(contadores.contador2));
             boton.get(nConteo).setBackground(Color.PINK);
             sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000);
+            contadores.contador2 = contadores.contador2 - 1;
+            JLTiempoProduccion.setText(String.valueOf(contadores.contador2));
             boton.get(nConteo).setBackground(Color.WHITE);
 
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        // }
 
     }
 

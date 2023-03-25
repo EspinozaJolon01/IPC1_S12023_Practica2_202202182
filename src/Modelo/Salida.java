@@ -18,7 +18,7 @@ import javax.swing.JLabel;
  */
 public class Salida extends Thread {
 
-    JLabel jLSaliadTiem;
+    JLabel JLSalidaConteo;
     int numerosDePelotitas = 0;
     int nConteo = 0;
 
@@ -26,9 +26,9 @@ public class Salida extends Thread {
     ArrayList<JButton> boton;
     FrmMenuInicial menu = new FrmMenuInicial();
 
-    public Salida(ArrayList<JButton> boton, JLabel jLSaliadTiem, int nConteo) {
+    public Salida(ArrayList<JButton> boton, JLabel jLSalidaConteo, int nConteo) {
         this.boton = boton;
-        this.jLSaliadTiem = jLSaliadTiem;
+        this.JLSalidaConteo = jLSalidaConteo;
         this.nConteo = nConteo;
     }
 
@@ -38,18 +38,13 @@ public class Salida extends Thread {
 
         try {
 
-//            for (int i = 0; i < 30; i++) {
-//
-//                boton.get(i).setBackground(Color.yellow);
-//                numerosDePelotitas++;
-//                nConteo++;
-//                jLSaliadTiem.setText(String.valueOf(numerosDePelotitas));
-//                sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
-//                System.out.println("salidI" + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
-//            }
             sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+            contadores.contador4 = contadores.contador4 + 1;
+            JLSalidaConteo.setText(String.valueOf(contadores.contador4));
             boton.get(nConteo).setBackground(Color.yellow);
             sleep(Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000);
+            contadores.contador4 = contadores.contador4 - 1;
+            JLSalidaConteo.setText(String.valueOf(contadores.contador4));
             boton.get(nConteo).setBackground(Color.WHITE);
 
         } catch (InterruptedException ex) {

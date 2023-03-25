@@ -85,7 +85,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel6" min="-2" pref="142" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLSaliadTiem" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="JLSalidaConteo" min="-2" pref="74" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jPSalida" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -98,7 +98,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel7" min="-2" pref="142" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLEmpaqueteTiem" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="JLEmpaqueteConteo" min="-2" pref="74" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jPEmpaquetado" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -109,7 +109,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel4" min="-2" pref="142" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="jLTiempoProduccion" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Component id="JLTiempoProduccion" min="-2" pref="74" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -156,13 +156,13 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jLTiempoProduccion" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="JLTiempoProduccion" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLEmpaqueteTiem" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="JLEmpaqueteConteo" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -206,7 +206,7 @@
                                   </Group>
                                   <Component id="JlConteoInventario" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLSaliadTiem" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="JLSalidaConteo" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -422,7 +422,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLTiempoProduccion">
+        <Component class="javax.swing.JLabel" name="JLTiempoProduccion">
         </Component>
         <Component class="javax.swing.JLabel" name="JlConteoInventario">
         </Component>
@@ -457,7 +457,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLEmpaqueteTiem">
+        <Component class="javax.swing.JLabel" name="JLEmpaqueteConteo">
         </Component>
         <Container class="javax.swing.JPanel" name="jPSalida">
           <Properties>
@@ -490,7 +490,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLSaliadTiem">
+        <Component class="javax.swing.JLabel" name="JLSalidaConteo">
         </Component>
         <Component class="javax.swing.JLabel" name="JLFinal">
         </Component>

@@ -34,29 +34,14 @@ public class Inventario extends Thread {
     @Override
     public void run() {
 
-        /*   while (nConteo != 30) {
-            try {
-
-                for (int i = 0; i < 30; i++) {
-
-                    boton.get(i).setBackground(Color.BLUE);
-                    numerosDePelotitas++;
-                    
-                    nConteo++;
-                    JlConteoInventario.setText(String.valueOf(numerosDePelotitas));
-                    sleep(1000);
-
-                }
-
-            } catch (InterruptedException ex) {
-                Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-         */
         try {
             sleep(1000);
+            contadores.contador1 = contadores.contador1 + 1;
+            JlConteoInventario.setText(String.valueOf(contadores.contador1));
             boton.get(nConteo).setBackground(Color.BLUE);
             sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+            contadores.contador1 = contadores.contador1 - 1;
+            JlConteoInventario.setText(String.valueOf(contadores.contador1));
             boton.get(nConteo).setBackground(Color.WHITE);
 
         } catch (Exception e) {

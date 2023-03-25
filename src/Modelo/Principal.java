@@ -11,6 +11,9 @@ package Modelo;
 class contadores {
 
     static int contador1 = 0;
+    static int contador2 = 0;
+    static int contador3 = 0;
+    static int contador4 = 0;
 }
 
 public class Principal {

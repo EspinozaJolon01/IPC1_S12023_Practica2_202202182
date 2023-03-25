@@ -23,16 +23,18 @@ public class Inventario extends Thread {
 
     JButton botones;
     ArrayList<JButton> boton;
+    FrmMenuInicial menu = new FrmMenuInicial();
 
-    public Inventario(ArrayList<JButton> boton, JLabel JlConteoInventario) {
+    public Inventario(ArrayList<JButton> boton, JLabel JlConteoInventario, int nConteo) {
         this.boton = boton;
         this.JlConteoInventario = JlConteoInventario;
+        this.nConteo = nConteo;
     }
 
     @Override
     public void run() {
 
-        while (nConteo != 30) {
+        /*   while (nConteo != 30) {
             try {
 
                 for (int i = 0; i < 30; i++) {
@@ -50,6 +52,14 @@ public class Inventario extends Thread {
                 Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+         */
+        try {
+            sleep(1000);
+            boton.get(nConteo).setBackground(Color.BLUE);
+            sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+            boton.get(nConteo).setBackground(Color.WHITE);
 
+        } catch (Exception e) {
+        }
     }
 }

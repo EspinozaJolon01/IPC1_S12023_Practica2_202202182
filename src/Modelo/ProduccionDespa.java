@@ -47,14 +47,14 @@ public class ProduccionDespa extends Thread {
                 jLTiempoProduccion.setText(String.valueOf(numerosDePelotitas));
 
                 if (Integer.parseInt(JlConteoInventario.getText()) != 0 && Integer.parseInt(JLRepeticiones.getText()) != 0) {
-                    sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
+                    sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 +1000);
                 } else if (Integer.parseInt(JlConteoInventario.getText()) != 0) {
                     sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
                 } else {
                     sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000);
                 }
 
-                System.out.println("ProducF" + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
+                //     System.out.println("ProducF" + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
             }
         } catch (InterruptedException ex) {
             Logger.getLogger(ProduccionDespa.class.getName()).log(Level.SEVERE, null, ex);

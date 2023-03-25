@@ -26,9 +26,10 @@ public class Empaquetado extends Thread {
     ArrayList<JButton> boton;
     FrmMenuInicial menu = new FrmMenuInicial();
 
-    public Empaquetado(ArrayList<JButton> boton, JLabel JlConteoInventario) {
+    public Empaquetado(ArrayList<JButton> boton, JLabel JlConteoInventario, int nConteo) {
         this.boton = boton;
         this.JlConteoInventario = JlConteoInventario;
+        this.nConteo = nConteo;
     }
 
     @Override
@@ -37,15 +38,19 @@ public class Empaquetado extends Thread {
 
         try {
 
-            for (int i = 0; i < 30; i++) {
-
-                boton.get(i).setBackground(Color.ORANGE);
-                numerosDePelotitas++;
-                nConteo++;
-                JlConteoInventario.setText(String.valueOf(numerosDePelotitas));
-                sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
-                System.out.println("empaI" + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
-            }
+//            for (int i = 0; i < 30; i++) {
+//
+//                boton.get(i).setBackground(Color.ORANGE);
+//                numerosDePelotitas++;
+//                nConteo++;
+//                JlConteoInventario.setText(String.valueOf(numerosDePelotitas));
+//                sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
+//                System.out.println("empaI" + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
+//            }
+            sleep(Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+            boton.get(nConteo).setBackground(Color.ORANGE);
+            sleep(Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000);
+            boton.get(nConteo).setBackground(Color.WHITE);
 
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);

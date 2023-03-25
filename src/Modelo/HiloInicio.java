@@ -22,8 +22,8 @@ public class HiloInicio extends Thread {
     JLabel pruibe;
     JButton btnHilo1;
     JLabel JLRepeticiones;
-    int contador = 0;
-    int vecesRepetidas = 30;
+    static int contador = 0;
+    static int vecesRepetidas = 30;
 
     public HiloInicio(JButton btnHilo1, JLabel btnRpes) {
         this.btnHilo1 = btnHilo1;
@@ -32,24 +32,25 @@ public class HiloInicio extends Thread {
 
     @Override
     public void run() {
-        while (contador != 30) {
+        //    while (contador != 30) {
 
-            contador++;
-            try {
+        contador++;
+        try {
+            sleep(1000);
+            vecesRepetidas--;
+            JLRepeticiones.setText(String.valueOf(vecesRepetidas));
 
-                vecesRepetidas--;
-                JLRepeticiones.setText(String.valueOf(vecesRepetidas));
-                if (contador % 2 != 0) {
-                    btnHilo1.setBackground(Color.RED);
+            if (contador % 2 != 0) {
+                btnHilo1.setBackground(Color.RED);
 
-                } else {
-                    btnHilo1.setBackground(Color.WHITE);
-                }
-                sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                btnHilo1.setBackground(Color.WHITE);
             }
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        // }
 
     }
 

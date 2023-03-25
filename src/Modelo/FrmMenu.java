@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -22,13 +24,14 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class FrmMenu extends javax.swing.JFrame implements Observer {
+public class FrmMenu extends javax.swing.JFrame implements Observer, Runnable {
 
-    CronometroHilo hilo1;
+    CronometroHilo hilo1 = new CronometroHilo(0, 0, 0);
     private ArrayList<JButton> listaBotones = new ArrayList<>();
     private ArrayList<JButton> listaBotonesProducc = new ArrayList<>();
     private ArrayList<JButton> listaBotonesEmpaquetado = new ArrayList<>();
     private ArrayList<JButton> listaBotonesSalida = new ArrayList<>();
+    static int nConteno = 0;
 
     /**
      * Creates new form FrmMenu
@@ -36,23 +39,20 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
     public FrmMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //iniciarlizar el cronocmetro
 
-        CronometroHilo hilo1 = new CronometroHilo(0, 0, 0);
         hilo1.addObserver(this);
         Thread t = new Thread(hilo1);
         t.start();
-        //iniciarlizar el cronocmetro
-        HiloInicio hilo2 = new HiloInicio(btnHilo1, JLRepeticiones);
-        hilo2.start();
+
+        Thread hiloP = new Thread(this);
+        hiloP.start();
 
         crearBotonesInventarios();
         crearBorotonesProduccion();
         crearBorotonesEmpaquetado();
         crearBorotonesSalida();
         //iniciarHiloInventario();
-
-        HiloFinal hilo12 = new HiloFinal(btnHiloFinal, JLFinal, btnRegresar, btnRepor, hilo1);
-        hilo12.start();
 
     }
 
@@ -500,11 +500,10 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
             jPInventario.setLayout(new GridLayout(5, 6));
             jPInventario.add(boton);
 
-            Inventario hilo3 = new Inventario(listaBotones, JlConteoInventario);
-            InventarioDesapa hilo4 = new InventarioDesapa(listaBotones, JlConteoInventario, JLRepeticiones);
-            hilo3.start();
-            hilo4.start();
-
+//            Inventario hilo3 = new Inventario(listaBotones, JlConteoInventario);
+//            InventarioDesapa hilo4 = new InventarioDesapa(listaBotones, JlConteoInventario, JLRepeticiones);
+//            hilo3.start();
+//            hilo4.start();
         }
 
     }
@@ -520,11 +519,10 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
             jPProduccion.setLayout(new GridLayout(5, 6));
             jPProduccion.add(botones);
 
-            Produccion hilo5 = new Produccion(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones);
-            ProduccionDespa hilo6 = new ProduccionDespa(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones);
-            hilo5.start();
-            hilo6.start();
-
+//            Produccion hilo5 = new Produccion(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones);
+//            ProduccionDespa hilo6 = new ProduccionDespa(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones);
+//            hilo5.start();
+//            hilo6.start();
         }
 
     }
@@ -540,11 +538,10 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
             jPEmpaquetado.setLayout(new GridLayout(5, 6));
             jPEmpaquetado.add(botones);
 
-            Empaquetado hilo7 = new Empaquetado(listaBotonesEmpaquetado, jLEmpaqueteTiem);
-            EmpaqueteDesapa hilo8 = new EmpaqueteDesapa(listaBotonesEmpaquetado, jLEmpaqueteTiem);
-            hilo7.start();
-            hilo8.start();
-
+//            Empaquetado hilo7 = new Empaquetado(listaBotonesEmpaquetado, jLEmpaqueteTiem);
+//            EmpaqueteDesapa hilo8 = new EmpaqueteDesapa(listaBotonesEmpaquetado, jLEmpaqueteTiem);
+//            hilo7.start();
+//            hilo8.start();
         }
 
     }
@@ -560,11 +557,10 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
             jPSalida.setLayout(new GridLayout(5, 6));
             jPSalida.add(botones);
 
-            Salida hilo9 = new Salida(listaBotonesSalida, jLSaliadTiem);
-            SalidaDespa hilo10 = new SalidaDespa(listaBotonesSalida, jLSaliadTiem);
-            hilo9.start();
-            hilo10.start();
-
+//            Salida hilo9 = new Salida(listaBotonesSalida, jLSaliadTiem);
+//            SalidaDespa hilo10 = new SalidaDespa(listaBotonesSalida, jLSaliadTiem);
+//            hilo9.start();
+//            hilo10.start();
         }
 
     }
@@ -635,5 +631,38 @@ public class FrmMenu extends javax.swing.JFrame implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         jbTiempo.setText((String) arg);
+    }
+
+    @Override
+    public void run() {
+
+        while (nConteno < 30) {
+
+            HiloInicio hilo2 = new HiloInicio(btnHilo1, JLRepeticiones);
+            hilo2.start();
+
+            Inventario hilo3 = new Inventario(listaBotones, JlConteoInventario, nConteno);
+            hilo3.start();
+
+            try {
+                Thread.sleep(1000);
+                Produccion hilo5 = new Produccion(listaBotonesProducc, jLTiempoProduccion, JlConteoInventario, JLRepeticiones, nConteno);
+                hilo5.start();
+
+                Empaquetado hilo7 = new Empaquetado(listaBotonesEmpaquetado, jLEmpaqueteTiem, nConteno);
+                hilo7.start();
+
+                Salida hilo9 = new Salida(listaBotonesSalida, jLSaliadTiem, nConteno);
+                hilo9.start();
+
+                HiloFinal hilo12 = new HiloFinal(btnHiloFinal, JLFinal, btnRegresar, btnRepor, hilo1);
+                hilo12.start();
+
+                nConteno++;
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FrmMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
 }

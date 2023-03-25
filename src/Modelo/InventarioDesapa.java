@@ -25,6 +25,7 @@ public class InventarioDesapa extends Thread {
     int nConteo = 0;
 
     JButton botones;
+    
 
     ArrayList<JButton> boton;
     FrmMenuInicial menu = new FrmMenuInicial();
@@ -43,18 +44,19 @@ public class InventarioDesapa extends Thread {
             sleep(1000);
 
             for (int i = 0; i < 30; i++) {
-                sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+
+                if (Integer.parseInt(JLRepeticiones.getText()) != 0) {
+                    sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
+                } else {
+                    sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
+                }
+
                 boton.get(i).setBackground(Color.WHITE);
                 numerosDePelotitas--;
                 nConteo--;
 
                 JlConteoInventarioEnInventario.setText(String.valueOf(numerosDePelotitas));
 
-                //    if (Integer.parseInt(JLRepeticiones.getText()) != 0) {
-                //      sleep(Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 );
-                //     } else {
-                //  }
-                System.out.println("Inve" + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + 1000);
             }
 
         } catch (InterruptedException ex) {

@@ -24,8 +24,8 @@ public class HiloFinal extends Thread {
     JButton btnRegresar;
     JButton btnRepor;
     JLabel JLRepeticiones;
-    int contador = 0;
-    int vecesRepetidas = 0;
+    static int contador = 0;
+    static int vecesRepetidas = 0;
     //iniciarlizar el cronocmetro
     private CronometroHilo crono;
 
@@ -43,27 +43,25 @@ public class HiloFinal extends Thread {
     @Override
     public void run() {
 
-        while (contador != 30) {
-
+        //       while (contador != 30) {
+        try {
+            sleep(Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000);
             contador++;
-            try {
+            btnHilo1.setBackground(Color.RED);
+            vecesRepetidas++;
+            JLRepeticiones.setText(String.valueOf(vecesRepetidas));
 
-                btnHilo1.setBackground(Color.RED);
-                vecesRepetidas++;
-                JLRepeticiones.setText(String.valueOf(vecesRepetidas));
+            if (contador == 30) {
+                btnRegresar.setEnabled(true);
+                btnRepor.setEnabled(true);
+                crono.stop();
 
-                if (contador == 30) {
-                    btnRegresar.setEnabled(true);
-                    btnRepor.setEnabled(true);
-                    crono.stop();
-                    break;
-                }
-                sleep(Integer.parseInt(menu.registros.get(3).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(2).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(0).getTiempo()) * 1000 + Integer.parseInt(menu.registros.get(1).getTiempo()) * 1000 + 1000);
-
-            } catch (InterruptedException ex) {
-                Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
             }
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(HiloInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //     }
 
     }
 
